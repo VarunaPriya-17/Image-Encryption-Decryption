@@ -103,7 +103,7 @@ if option == "🔐 Encrypt Image":
     st.markdown("<h3>Upload an Image to Encrypt</h3>", unsafe_allow_html=True)
     uploaded_file = st.file_uploader("Choose an image...", type=["png", "jpg", "jpeg"])
     if uploaded_file:
-        st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
+        st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
         username = st.text_input("Enter your username:")
         password = st.text_input("Enter a password to encrypt:", type="password")
         if st.button("Encrypt Image"):
@@ -143,7 +143,7 @@ if option == "🔓 Decrypt Image":
                     img_bytes = io.BytesIO()
                     image.save(img_bytes, format='PNG')
                     st.success("✨ Image Decrypted Successfully! ✨")
-                    st.image(image, caption="Decrypted Image", use_column_width=True)
+                    st.image(image, caption="Decrypted Image", use_container_width=True)
                     st.download_button("📥 Download Decrypted Image", img_bytes.getvalue(), file_name="decrypted_image.png")
                 except Exception:
                     st.error("❌ Wrong Password! Decryption Failed.")
